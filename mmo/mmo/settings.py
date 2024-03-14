@@ -62,7 +62,7 @@ MIDDLEWARE = [
     'basic.middlewares.TimezoneMiddleware',
 ]
 
-ROOT_URLCONF = 'mmo.urls'
+ROOT_URLCONF = 'mmonews.urls'
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend',
@@ -85,7 +85,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'mmo.wsgi.application'
+WSGI_APPLICATION = 'mmonews.wsgi.application'
 
 
 
@@ -139,7 +139,7 @@ STATICFILES_DIRS = [
     BASE_DIR / "static"
 ]
 
-AUTH_USER_MODEL = 'mmo.User'
+AUTH_USER_MODEL = 'mmonews.User'
 
 LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = '/'
@@ -150,7 +150,7 @@ ACCOUNT_UNIQUE_EMAIL = True
 ACCOUNT_USERNAME_REQUIRED = True
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_EMAIL_VERIFICATION = 'none'
-ACCOUNT_FORMS = {'signup': 'mmo.forms.CommonSignupForm'}
+ACCOUNT_FORMS = {'signup': 'mmonews.forms.CommonSignupForm'}
 
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
