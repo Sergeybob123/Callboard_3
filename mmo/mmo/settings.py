@@ -59,10 +59,9 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
     'allauth.account.middleware.AccountMiddleware',
-    'basic.middlewares.TimezoneMiddleware',
 ]
 
-ROOT_URLCONF = 'mmonews.urls'
+ROOT_URLCONF = 'mmo.urls'
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend',
@@ -79,13 +78,13 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'mmo.current_time.get_current_time',
+                'mmonews.current_time.get_current_time',
             ],
         },
     },
 ]
 
-WSGI_APPLICATION = 'mmonews.wsgi.application'
+WSGI_APPLICATION = 'mmo.wsgi.application'
 
 
 
