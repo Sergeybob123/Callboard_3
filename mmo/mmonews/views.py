@@ -166,7 +166,7 @@ class MyResponsesSearchView(LoginRequiredMixin, ListView):
 
 
     def get_queryset(self):
-        queryset = super().get_queryset().filter(author=self.request.user.author)
+        queryset = super().get_queryset().filter(author=self.request.user)
         self.queryset = MyResponseFilter(self.request.GET, queryset=queryset)
         return self.queryset.qs
 

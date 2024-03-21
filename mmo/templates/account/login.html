@@ -1,6 +1,5 @@
 {% extends "account/base_entrance.html" %}
 {% load i18n %}
-{% load allauth account %}
 {% block head_title %}
     {% trans "Sign In" %}
 {% endblock head_title %}
@@ -13,23 +12,15 @@
                 <a href="{{ signup_url }}">зарегистрируйтесь.</a> {% endblocktrans %}
             </p>
             {% url 'account_login' as login_url %}
-            {% element form form=form method="post" action=login_url tags="entrance,login" %}
-                {% slot body %}
                     {% csrf_token %}
                     <div class="form-floating">
-                        {% element fields form=form unlabeled=True %}
                     </div>
-                    {% endelement %}
                     {% if redirect_field_value %}
                         <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
                     {% endif %}
-                {% endslot %}
-                {% slot actions %}
                     <div style="text-align: center;">
                         <button class="btn btn-primary w-40 py-2" type="submit">{% trans "Вход" %}</button>
                     </div>
-                {% endslot %}
-            {% endelement %}
         </main>
     </div>
 {% endblock content %}
