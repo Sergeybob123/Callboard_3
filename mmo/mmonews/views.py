@@ -36,7 +36,7 @@ class PostDetailView(DetailView):
     context_object_name = 'post'
 
 
-class PostCreateView(LoginRequiredMixin, PermissionRequiredMixin, CreateView):
+class PostCreateView(LoginRequiredMixin, CreateView):
     form_class = PostForm
     template_name = 'mmonews/post_create.html'
     context_object_name = 'post'
@@ -45,7 +45,7 @@ class PostCreateView(LoginRequiredMixin, PermissionRequiredMixin, CreateView):
 
     def form_valid(self, form):
         post = form.save(commit=False)
-        post.author = self.request.user.author
+        post.author = self.request.user
         post.save()
         return super().form_valid(form)
 
@@ -61,7 +61,7 @@ class PostCreateView(LoginRequiredMixin, PermissionRequiredMixin, CreateView):
             return render(request, 'mmonews/post_create.html', {'form': form})
 
 
-class PostUpdateView(LoginRequiredMixin, PermissionRequiredMixin, AuthorRequiredMixin, UpdateView):
+class PostUpdateView(LoginRequiredMixin, UpdateView):
     model = Post
     model_search = Post
     template_name = 'mmonews/post_edit.html'
@@ -73,7 +73,7 @@ class PostUpdateView(LoginRequiredMixin, PermissionRequiredMixin, AuthorRequired
         return Post.objects.get(pk=my_id)
 
 
-class PostDeleteView(LoginRequiredMixin, PermissionRequiredMixin, AuthorRequiredMixin, DeleteView):
+class PostDeleteView(LoginRequiredMixin, DeleteView):
     model = Post
     model_search = Post
     template_name = 'mmonews/post_delete.html'
