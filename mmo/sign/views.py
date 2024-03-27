@@ -20,7 +20,7 @@ class ConfirmUser(UpdateView):
 
     def post(self,  request, *args, **kwargs):
         if 'code' in request.POST:
-            user = User.objects.filter(user=request.POST['code'])
+            user = User.objects.filter(code=request.POST['code'])
             if user.exists():
                 user.update(is_active=True)
                 user.update(code=None)
