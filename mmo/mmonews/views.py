@@ -94,7 +94,7 @@ class PersonalAccountView(LoginRequiredMixin, ListView):
         return context
 
 
-class ResponseCreateView(LoginRequiredMixin, AuthorNecessaryMixin, CreateView):
+class ResponseCreateView(LoginRequiredMixin, CreateView):
     model = Response
     model_search = Post
     form_class = ResponseForm
