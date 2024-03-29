@@ -107,7 +107,7 @@ class ResponseCreateView(LoginRequiredMixin, CreateView):
 
         response = form.save(commit=False)
         response.post = post
-        response.author = self.request.user.author
+        response.author = self.request.user
         response.save()
 
         return super().form_valid(form)
